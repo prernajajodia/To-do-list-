@@ -31,17 +31,6 @@ export default function Header(props) {
         </div>
     )
 
-    // Header.defaultProps = {
-
-    //     title : "Default Title",
-    //     searchBar : true
-    //         }
-
-    // Header.propTypes = {
-        
-    //     title : PropTypes.string
-    //         }
-
 
 }
 Header.defaultProps = {
