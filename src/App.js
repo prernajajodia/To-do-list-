@@ -11,7 +11,8 @@ function App() {
   const onDelete = (todos) => {
       console.log('I am deleted',todos)
       // let index = todoList.indexOf(todos)
-      // todoList.splice(index,1)//deleting this way does not work in React
+      // todoList.splice(index,1)
+      //deleting this way does not work in React
 
       setTodoList(todoList.filter((e) => {
 
