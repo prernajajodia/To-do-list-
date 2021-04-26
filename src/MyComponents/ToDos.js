@@ -9,7 +9,7 @@ export const ToDos = (props) => {
                 {/* {console.log(props.todoData)} */}
 
                 {props.todoData.map((ele) => {
-                            return   <Task todos = {ele} />
+                            return   <Task todos = {ele} onDelete= {props.onDelete} />
 
                 })}
             

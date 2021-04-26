@@ -1,3 +1,4 @@
+import React, { useState} from 'react';
 import './App.css';
 import Header from './MyComponents/Header';
 import {ToDos} from './MyComponents/ToDos';
@@ -7,7 +8,23 @@ import {Footer} from './MyComponents/Footer';
 
 function App() {
 
-    let todoList = [
+  const onDelete = (todos) => {
+      console.log('I am deleted',todos)
+      // let index = todoList.indexOf(todos)
+      // todoList.splice(index,1)//deleting this way does not work in React
+
+      setTodoList(todoList.filter((e) => {
+
+        return e!==todos;
+
+
+
+      }))
+
+    }
+
+
+    const [todoList,setTodoList ] = useState( [
       {
 
         sno : 1,
@@ -30,13 +47,13 @@ function App() {
 
       },
     
-    ]
+    ])
 
 
   return (
     <div>
       <Header title = "To-Do List" searchBar = {false}/>
-      <ToDos todoData = {todoList} myprop = {2} />
+      <ToDos todoData = {todoList} onDelete = {onDelete} />
       <Footer />
     </div >
   );
