@@ -21,7 +21,28 @@ function App() {
         
       }))
 
+  }
+  
+  const addToDo = (title,desc) => {
+    console.log("I am adding this to-do", title, desc)
+    let sno;
+    if (todoList.length === 0) {
+      sno = 0;
     }
+    else {
+      sno = todoList[todoList.length - 1].sno + 1;
+    }
+
+
+    const myToDo = {
+      sno: sno,
+      title: title,
+      desc : desc,
+    }
+      
+    setTodoList([...todoList, myToDo]);
+    console.log(myToDo)
+  }
 
 
     const [todoList,setTodoList ] = useState( [
@@ -53,7 +74,7 @@ function App() {
   return (
     <div>
       <Header title="To-Do List" searchBar={false} />
-      <AddToDo/>
+      <AddToDo addToDo={addToDo}/>
       <ToDos todoData = {todoList} onDelete = {onDelete} />
       <Footer />
     </div >

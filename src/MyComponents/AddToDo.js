@@ -1,33 +1,44 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-export const AddToDo = () => {
+export const AddToDo = ({addToDo}) => {
+    const [title, setTitle] = useState("");
+    const [desc, setDesc] = useState("");
+
+    const submit = (e) => {
+        e.preventDefault();
+        if (!title || !desc) {
+            alert('Title or description cannot be blank!')
+        }
+        addToDo(title, desc) 
+    }
+    let FormStyle = {
+
+        color: "black",
+        padding: "10px",
+        width : "100%",
+        fontFamily: "Arial",
+        textalign: "center"
+    }
 
             return (
 
-                <div className="container">
-                    <h3>
-                        ADD A TO-DO
+                <div className="container my-4" onSubmit = {submit} >
+                    <h3  style = {FormStyle}>
+                        Add a To-Do
                     </h3>
                         <form>
-                 <div class="mb-3">
-                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                            </div>
-                <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1"/>
+                 <div className="mb-3">
+                 <label htmlFor="title" className="form-label">To-Do Title</label>
+                     <input type="text" value = {title} onChange={(e)=> {setTitle(e.target.value)}} className="form-control" id="title" aria-describedby = 'emailHelp'/>
+                <div className="mb-3">
+                        <label htmlFor="desc" className="desc">Description</label>
+                  <input type="text" value = {desc} onChange={(e)=> {setDesc(e.target.value)}} className="form-control" id="desc" />
                       </div>             
-                              <div class="mb-3 form-check">
-                         <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                     <button type="submit" className="btn btn-sm btn-success">Add To-Do</button>
+                        </div>
+                    </form>
+
                     </div>
-                     <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-
-
-
             )
 
 
