@@ -2,7 +2,8 @@ import React, { useState} from 'react';
 import './App.css';
 import Header from './MyComponents/Header';
 import {ToDos} from './MyComponents/ToDos';
-import {Footer} from './MyComponents/Footer';
+import { Footer } from './MyComponents/Footer';
+import {AddToDo} from './MyComponents/AddToDo';
 
 
 
@@ -16,10 +17,8 @@ function App() {
 
       setTodoList(todoList.filter((e) => {
 
-        return e!==todos;
-
-
-
+        return e!== todos;
+        
       }))
 
     }
@@ -53,7 +52,8 @@ function App() {
 
   return (
     <div>
-      <Header title = "To-Do List" searchBar = {false}/>
+      <Header title="To-Do List" searchBar={false} />
+      <AddToDo/>
       <ToDos todoData = {todoList} onDelete = {onDelete} />
       <Footer />
     </div >
