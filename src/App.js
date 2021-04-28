@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 import Header from './MyComponents/Header';
 import {ToDos} from './MyComponents/ToDos';
@@ -8,6 +8,14 @@ import {AddToDo} from './MyComponents/AddToDo';
 
 
 function App() {
+
+  let initToDo;
+  if (localStorage.getItem("todoList")=== null) {
+    initToDo = []
+  }
+  else {
+    initToDo = JSON.parse(localStorage.getItem("todoList"))
+  }
 
   const onDelete = (todos) => {
       console.log('I am deleted',todos)
@@ -19,12 +27,15 @@ function App() {
 
         return e!== todos;
         
-      }))
+      })) 
+     localStorage.setItem("todoList",JSON.stringify(todoList))
 
   }
   
-  const addToDo = (title,desc) => {
+  const addToDo = (title, desc) => {
+    
     console.log("I am adding this to-do", title, desc)
+
     let sno;
     if (todoList.length === 0) {
       sno = 0;
@@ -42,33 +53,15 @@ function App() {
       
     setTodoList([...todoList, myToDo]);
     console.log(myToDo)
+
   }
 
 
-    const [todoList,setTodoList ] = useState( [
-      {
-
-        sno : 1,
-        title: "Shopping",
-        desc : "Grocery shopping"
-
-      },
-      {
-
-        sno : 2,
-        title: "Eating",
-        desc : "Ice-cream"
-
-      },
-      {
-
-        sno : 3,
-        title: "Studying",
-        desc : "Machine Learning"
-
-      },
-    
-    ])
+  const [todoList, setTodoList] = useState(initToDo)
+  
+    useEffect(() => {
+        localStorage.setItem("todoList",JSON.stringify(todoList))
+      }, [todoList])
 
 
   return (

@@ -9,7 +9,11 @@ export const AddToDo = ({addToDo}) => {
         if (!title || !desc) {
             alert('Title or description cannot be blank!')
         }
-        addToDo(title, desc) 
+        else {
+            addToDo(title, desc)
+            setTitle("")
+            setDesc("")
+        }
     }
     let FormStyle = {
 
