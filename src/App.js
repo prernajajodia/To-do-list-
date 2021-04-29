@@ -3,7 +3,10 @@ import './App.css';
 import Header from './MyComponents/Header';
 import {ToDos} from './MyComponents/ToDos';
 import { Footer } from './MyComponents/Footer';
-import {AddToDo} from './MyComponents/AddToDo';
+import { AddToDo } from './MyComponents/AddToDo';
+import {About} from './MyComponents/About'
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
 
 
 
@@ -65,11 +68,25 @@ function App() {
 
 
   return (
-    <div>
-      <Header title="To-Do List" searchBar={false} />
-      <AddToDo addToDo={addToDo}/>
-      <ToDos todoData = {todoList} onDelete = {onDelete} />
-      <Footer />
+    <div style= {{backgroundColor : "#FAD0C9FF"}}>
+      <Router>
+        <Header title="To-Do List" searchBar={false} />
+        <Switch>
+          <Route exact path="/" render={() => {
+            return (
+              <div>
+            <AddToDo addToDo={addToDo}/>
+         <ToDos todoData = {todoList} onDelete = {onDelete} />
+                </div>
+            )
+          }}>
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+        </Switch>
+         <Footer />
+      </Router>
     </div >
   );
 }

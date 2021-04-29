@@ -1,5 +1,4 @@
 import React from 'react';
-import { ToDos } from './ToDos';
 
 export const Footer = () => {
 
@@ -7,7 +6,7 @@ export const Footer = () => {
 
         <footer className = "bg-dark text-light py-3" >
             <p className = "text-center">
-                Copyright &copy; Prerna Jajodia
+                Copyright &copy; Prerna Jajodia 2021
             </p>
             <h4>
                  

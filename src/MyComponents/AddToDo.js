@@ -16,7 +16,7 @@ export const AddToDo = ({addToDo}) => {
         }
     }
     let FormStyle = {
-
+        backgroundColor : "#FAD0C9FF",
         color: "black",
         padding: "10px",
         width : "100%",
@@ -32,13 +32,13 @@ export const AddToDo = ({addToDo}) => {
                     </h3>
                         <form>
                  <div className="mb-3">
-                 <label htmlFor="title" className="form-label">To-Do Title</label>
+                 <label htmlFor="title" className="form-label" >To-Do Title</label>
                      <input type="text" value = {title} onChange={(e)=> {setTitle(e.target.value)}} className="form-control" id="title" aria-describedby = 'emailHelp'/>
                 <div className="mb-3">
                         <label htmlFor="desc" className="desc">Description</label>
                   <input type="text" value = {desc} onChange={(e)=> {setDesc(e.target.value)}} className="form-control" id="desc" />
                       </div>             
-                     <button type="submit" className="btn btn-sm btn-success">Add To-Do</button>
+                     <button type="submit" className="btn btn-sm btn-success" style = {{backgroundColo:"#adb2b4"}}>Add To-Do</button>
                         </div>
                     </form>
 
