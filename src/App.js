@@ -68,7 +68,7 @@ function App() {
 
 
   return (
-    <div style= {{backgroundColor : "#FAD0C9FF"}}>
+    <div style= {{backgroundColor : "#F1F4FFFF"}}>
       <Router>
         <Header title="To-Do List" searchBar={false} />
         <Switch>
