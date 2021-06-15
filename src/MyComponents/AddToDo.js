@@ -16,18 +16,23 @@ export const AddToDo = ({addToDo}) => {
         }
     }
     let FormStyle = {
-        // backgroundColor : "#FAD0C9FF",
         color: "black",
         padding: "10px",
         width : "100%",
         fontFamily: "Arial",
         textalign: "center"
     }
+    let style = {
 
+        color: "#ffff",
+        background: "#70c299",
+        border: "2px"
+        
+    }
             return (
 
                 <div className="container my-4" onSubmit = {submit} >
-                    <h3  style = {FormStyle}>
+                    <h3 style = {FormStyle}>
                         Add a To-Do
                     </h3>
                         <form>
@@ -38,7 +43,7 @@ export const AddToDo = ({addToDo}) => {
                         <label htmlFor="desc" className="desc">Description</label>
                   <input type="text" value = {desc} onChange={(e)=> {setDesc(e.target.value)}} className="form-control" id="desc" />
                       </div>             
-                     <button type="submit" className="btn btn-sm btn-success" style = {{color: "#ffff", background: "#70c299",border: "2px"}}>Add To-Do</button>
+                     <button type="submit" className="btn btn-sm btn-success" style = {style}>Add To-Do</button>
                         </div>
                     </form>
 

@@ -4,8 +4,7 @@ import { Task } from './Task';
     export const ToDos = (props) => {
         let myStyle = {
             minHeight: "70vh",
-            margin: "35px auto",
-            // backgroundColor: "#fad0c3"
+            margin: "35px auto"
         }
     return (
         <div className = "container" style = {myStyle}>
